@@ -13,10 +13,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Accelerometer\"><param name=\"ios-package\" value=\"CDVAccelerometer\" /></feature>",
                             "count": 1
                         }
@@ -25,12 +21,7 @@
             },
             "framework": {
                 "parents": {
-                    "CoreLocation.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
+                    "CoreLocation.framework": [],
                     "CoreMotion.framework": [
                         {
                             "xml": false,
@@ -41,12 +32,7 @@
             },
             "*-Info.plist": {
                 "parents": {
-                    "NSLocationWhenInUseUsageDescription": [
-                        {
-                            "xml": "<string />",
-                            "count": 1
-                        }
-                    ]
+                    "NSLocationWhenInUseUsageDescription": []
                 }
             }
         }
@@ -56,9 +42,6 @@
             "PACKAGE_NAME": "com.leoneckert.audibleNav"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.leoneckert.audibleNav"
-        },
-        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.leoneckert.audibleNav"
         },
         "cordova-plugin-device-motion": {

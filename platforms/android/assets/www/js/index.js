@@ -29,10 +29,6 @@ var app = {
     }
 
 
-
-
-
-
 };
 
 app.initialize();
