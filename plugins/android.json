@@ -25,7 +25,16 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/*": []
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 1
+                        }
+                    ]
                 }
             }
         }
@@ -38,6 +47,9 @@
             "PACKAGE_NAME": "com.leoneckert.audibleNav"
         },
         "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.leoneckert.audibleNav"
+        },
+        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.leoneckert.audibleNav"
         }
     },
