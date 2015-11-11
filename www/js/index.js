@@ -15,27 +15,18 @@ var app = {
         var o = document.getElementById('output');
        
         b.onclick = function() {
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
+            navigator.accelerometer.getCurrentAcceleration(this.accelerometerSuccess, this.accelerometerError);
             o.innerHTML = "i registered the click but navigator doesnt seems to work";
         };
         
     },
 
-    var onSuccess = function(position) {
-        alert('Latitude: '          + position.coords.latitude          + '\n' +
-              'Longitude: '         + position.coords.longitude         + '\n' +
-              'Altitude: '          + position.coords.altitude          + '\n' +
-              'Accuracy: '          + position.coords.accuracy          + '\n' +
-              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-              'Heading: '           + position.coords.heading           + '\n' +
-              'Speed: '             + position.coords.speed             + '\n' +
-              'Timestamp: '         + position.timestamp                + '\n');
+    var accelerometerSuccess = function(position) {
+        alert('Acceleration X: ' + acceleration.x + '\n' +
+          'Acceleration Y: ' + acceleration.y + '\n' +
+          'Acceleration Z: ' + acceleration.z + '\n' +
+          'Timestamp: '      + acceleration.timestamp + '\n');
     }
-
-
-
-
 
 
 };
