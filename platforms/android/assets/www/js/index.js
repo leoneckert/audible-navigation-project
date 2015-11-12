@@ -3,16 +3,19 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
-        console.log("in initialize this is ");
-        console.log(this);
+        /////////////////
+        //this is APP
+        /////////////////
     },
     watchId: null,
+    watchIdOrientation: null,
 
     // Bind Event Listeners
     // any listeners created in here will be constantly listening. 
     bindEvents: function() {
-        console.log("in bind events this is ");
-        console.log(this);
+        /////////////////
+        //this is APP
+        /////////////////
         document.addEventListener('deviceready', this.onDeviceReady, false);
         button.addEventListener('click', this.handleClick, false);
     },
@@ -20,49 +23,65 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-      console.log("in onDeviceReady this is ");
-      console.log(this);
+      /////////////////
+      //this is Channel
+      /////////////////
       var options = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+      // var optionsOrientation = { frequency: 3000};
       
       function success(position) {
+        /////////////////
         //this is window
+        /////////////////
         output.innerHTML = position.coords.latitude;
       }
-      app.watchId = navigator.geolocation.watchPosition(success, this.onError, options);
+
+      function sucessOrientation(heading) { 
+        // output2.innerHTML = "nothing";
+        output2.innerHTML = heading.magneticHeading;
+      }
+
+      app.watchId = navigator.geolocation.watchPosition(success, app.onError, options);
+      navigator.compass.getCurrentHeading(sucessOrientation, app.onError);
     },
 
 
     onError: function(err) {
-      console.log("in onError this is ");
-      console.log(this);
       alert('you FAILED! DIE!' + err);
     },
 
 
     handleClick: function() {
-      //would "this" refer to button here?
-      console.log("in handleClick this is ");
-      console.log(this);
+      /////////////////
+      //this is Button
+      /////////////////
       app.readLocation();
     },
 
 
     readLocation: function() {
-      console.log("in readLocation this is ");
-      console.log(this);
-      alert("You clicked me");
+      /////////////////
+      //this is APP
+      /////////////////
       function onSuccess(position) {
-        console.log("in readLocation>onSuccess this is ");
-        console.log(this);
-        output2.innerHTML = position.coords.latitude;
+        /////////////////
+        //this is Window
+        /////////////////
+        output.innerHTML = position.coords.latitude;
+      }
+      function sucessOrientation(heading) { 
+        // output2.innerHTML = "nothing";
+        output2.innerHTML = heading.magneticHeading;
       }
       
-      navigator.geolocation.getCurrentPosition(onSuccess, this.onError);
+      navigator.geolocation.getCurrentPosition(onSuccess, app.onError);
+      navigator.compass.getCurrentHeading(sucessOrientation, app.onError);
     }
 
 
 };
 
-console.log("outside this is ");
-console.log(this);
+/////////////////
+//this is window
+/////////////////
 app.initialize();

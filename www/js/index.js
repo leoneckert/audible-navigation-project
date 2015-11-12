@@ -8,6 +8,7 @@ var app = {
         /////////////////
     },
     watchId: null,
+    watchIdOrientation: null,
 
     // Bind Event Listeners
     // any listeners created in here will be constantly listening. 
@@ -26,6 +27,7 @@ var app = {
       //this is Channel
       /////////////////
       var options = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+      // var optionsOrientation = { frequency: 3000};
       
       function success(position) {
         /////////////////
@@ -33,7 +35,14 @@ var app = {
         /////////////////
         output.innerHTML = position.coords.latitude;
       }
-      app.watchId = navigator.geolocation.watchPosition(success, this.onError, options);
+
+      function sucessOrientation(heading) { 
+        // output2.innerHTML = "nothing";
+        output2.innerHTML = heading.magneticHeading;
+      }
+
+      app.watchId = navigator.geolocation.watchPosition(success, app.onError, options);
+      navigator.compass.getCurrentHeading(sucessOrientation, app.onError);
     },
 
 
@@ -54,15 +63,19 @@ var app = {
       /////////////////
       //this is APP
       /////////////////
-      alert("You clicked me");
       function onSuccess(position) {
         /////////////////
         //this is Window
         /////////////////
-        output2.innerHTML = position.coords.latitude;
+        output.innerHTML = position.coords.latitude;
+      }
+      function sucessOrientation(heading) { 
+        // output2.innerHTML = "nothing";
+        output2.innerHTML = heading.magneticHeading;
       }
       
-      navigator.geolocation.getCurrentPosition(onSuccess, this.onError);
+      navigator.geolocation.getCurrentPosition(onSuccess, app.onError);
+      navigator.compass.getCurrentHeading(sucessOrientation, app.onError);
     }
 
 

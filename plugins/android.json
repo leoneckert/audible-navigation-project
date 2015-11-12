@@ -13,11 +13,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Accelerometer\"><param name=\"android-package\" value=\"org.apache.cordova.devicemotion.AccelListener\" /></feature>",
+                            "xml": "<feature name=\"Compass\"><param name=\"android-package\" value=\"org.apache.cordova.deviceorientation.CompassListener\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -28,11 +24,11 @@
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
-                            "count": 1
+                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
-                            "count": 1
+                            "count": 2
                         }
                     ]
                 }
@@ -40,16 +36,13 @@
         }
     },
     "installed_plugins": {
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.leoneckert.audibleNav"
+        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.leoneckert.audibleNav"
         },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.leoneckert.audibleNav"
-        },
-        "cordova-plugin-device-motion": {
-            "PACKAGE_NAME": "com.leoneckert.audibleNav"
-        },
-        "cordova-plugin-geolocation": {
+        "cordova-plugin-device-orientation": {
             "PACKAGE_NAME": "com.leoneckert.audibleNav"
         }
     },

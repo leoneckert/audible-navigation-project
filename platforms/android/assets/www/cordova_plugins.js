@@ -6,34 +6,33 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-device/www/device.js",
-        "id": "cordova-plugin-device.device",
+        "file": "plugins/cordova-plugin-device-orientation/www/CompassError.js",
+        "id": "cordova-plugin-device-orientation.CompassError",
         "clobbers": [
-            "device"
+            "CompassError"
         ]
     },
     {
-        "file": "plugins/cordova-plugin-device-motion/www/Acceleration.js",
-        "id": "cordova-plugin-device-motion.Acceleration",
+        "file": "plugins/cordova-plugin-device-orientation/www/CompassHeading.js",
+        "id": "cordova-plugin-device-orientation.CompassHeading",
         "clobbers": [
-            "Acceleration"
+            "CompassHeading"
         ]
     },
     {
-        "file": "plugins/cordova-plugin-device-motion/www/accelerometer.js",
-        "id": "cordova-plugin-device-motion.accelerometer",
+        "file": "plugins/cordova-plugin-device-orientation/www/compass.js",
+        "id": "cordova-plugin-device-orientation.compass",
         "clobbers": [
-            "navigator.accelerometer"
+            "navigator.compass"
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+    "cordova-plugin-geolocation": "1.0.1",
     "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-device": "1.0.1",
-    "cordova-plugin-device-motion": "1.1.1",
-    "cordova-plugin-geolocation": "1.0.1"
+    "cordova-plugin-device-orientation": "1.0.1"
 }
 // BOTTOM OF METADATA
 });

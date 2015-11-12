@@ -9,15 +9,11 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Accelerometer\"><param name=\"ios-package\" value=\"CDVAccelerometer\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Compass\"><param name=\"ios-package\" value=\"CDVCompass\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -28,15 +24,10 @@
                     "CoreLocation.framework": [
                         {
                             "xml": false,
-                            "count": 1
+                            "count": 2
                         }
                     ],
-                    "CoreMotion.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ]
+                    "CoreMotion.framework": []
                 }
             },
             "*-Info.plist": {
@@ -52,16 +43,13 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-device": {
+        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.leoneckert.audibleNav"
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.leoneckert.audibleNav"
         },
-        "cordova-plugin-device-motion": {
-            "PACKAGE_NAME": "com.leoneckert.audibleNav"
-        },
-        "cordova-plugin-geolocation": {
+        "cordova-plugin-device-orientation": {
             "PACKAGE_NAME": "com.leoneckert.audibleNav"
         }
     },
