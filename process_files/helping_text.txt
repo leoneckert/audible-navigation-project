@@ -1,0 +1,5 @@
+chrome://inspect	<<mark recommended this to me, didn’t now it but its very helpful
+			<<run while phone is connected and app runs to see live screen
+			<<and the console!
+		
+
