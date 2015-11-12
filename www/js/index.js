@@ -27,13 +27,20 @@ var app = {
       //this is Channel
       /////////////////
       var options = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
-      // var optionsOrientation = { frequency: 3000};
+      var optionsOrientation = { frequency: 100};
       
       function success(position) {
         /////////////////
         //this is window
         /////////////////
-        output.innerHTML = position.coords.latitude;
+        output.innerHTML =  "Latitude: " + position.coords.latitude + 
+                            "<br>Longitude: " + position.coords.longitude +
+                            "<br>Altitude: " + position.coords.altitude +
+                            "<br>Accuracy: " + position.coords.accuracy +
+                            "<br>Altitude Accuracy: " + position.coords.altitudeAccuracy +
+                            "<br>Heading: " + position.coords.heading +
+                            "<br>Speed: " + position.coords.speed +
+                            "<br>Timestamp: " + position.timestamp;
       }
 
       function sucessOrientation(heading) { 
@@ -42,7 +49,7 @@ var app = {
       }
 
       app.watchId = navigator.geolocation.watchPosition(success, app.onError, options);
-      navigator.compass.getCurrentHeading(sucessOrientation, app.onError);
+      app.watchIdOrientation = navigator.compass.watchHeading(sucessOrientation, app.onError, optionsOrientation);
     },
 
 
