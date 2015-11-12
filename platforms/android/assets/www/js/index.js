@@ -1,37 +1,50 @@
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
+// var app = {
+//     // Application Constructor
+//     initialize: function() {
+//         this.bindEvents();
+//     },
 
 
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
+//     bindEvents: function() {
+//         document.addEventListener('deviceready', this.onDeviceReady, false);
+//         var b = document.getElementById('button');
+//         b.addEventListener("click", this.getLocation, false)
+//     },
 
+    
 
-    onDeviceReady: function() {
-        var b = document.getElementById('button');
-        var o = document.getElementById('output');
+//     onDeviceReady: function() {
+//         var b = document.getElementById('button');
+//         var o = document.getElementById('output');
        
-        b.onclick = function() {
-            navigator.accelerometer.getCurrentAcceleration(this.accelerometerSuccess, this.accelerometerError);
-            o.innerHTML = "i registered the click but navigator doesnt seems to work";
-        };
+//         b.onclick = function() {
+//             navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError);
+//             o.innerHTML = "i registered the click but navigator doesnt seems to work";
+//         };
         
-    },
+//     },
 
-    var accelerometerSuccess = function(position) {
-        alert('Acceleration X: ' + acceleration.x + '\n' +
-          'Acceleration Y: ' + acceleration.y + '\n' +
-          'Acceleration Z: ' + acceleration.z + '\n' +
-          'Timestamp: '      + acceleration.timestamp + '\n');
-    }
+//     var onSuccess = function(position) {
+//         alert('Latitude: '          + position.coords.latitude          + '\n' +
+//               'Longitude: '         + position.coords.longitude         + '\n' +
+//               'Altitude: '          + position.coords.altitude          + '\n' +
+//               'Accuracy: '          + position.coords.accuracy          + '\n' +
+//               'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+//               'Heading: '           + position.coords.heading           + '\n' +
+//               'Speed: '             + position.coords.speed             + '\n' +
+//               'Timestamp: '         + position.timestamp                + '\n');
+//     },
+
+//     function onError(error) {
+//         alert('code: '    + error.code    + '\n' +
+//               'message: ' + error.message + '\n');
+//     }
 
 
-};
 
-app.initialize();
+// };
+
+// app.initialize();
 
 
 
@@ -85,3 +98,53 @@ app.initialize();
 // // // Options: throw an error if no update is received every 30 seconds.
 // // //
 // // var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    watchId: null,
+
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+        button.addEventListener('click', this.handleClick, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+      var options = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+        function success(position) {
+          output.innerHTML = position.coords.latitude;
+        }
+
+         app.watchId = navigator.geolocation.watchPosition(success,
+                                                  this.onError,
+                                                  options);
+    },
+
+     onError: function(err) {
+      alert('you FAILED! DIE!' + err);
+    },
+
+    handleClick: function() {
+      alert("You clicked me");
+      app.readLocation();
+    },
+
+    readLocation: function() {
+      function onSuccess(position) {
+        output.innerHTML = position.coords.latitude;
+      }
+
+      navigator.geolocation.getCurrentPosition(onSuccess, this.onError);
+    }
+};
+
+app.initialize();
