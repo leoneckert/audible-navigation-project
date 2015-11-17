@@ -2,10 +2,10 @@ var cnv;
 
 function setup() {
   cnv = createCanvas(200,200);
+
 }
 
 function draw() {
-  angle = map(mouseX, 0, width, 0, 360);
   background(255);
   angleMode(DEGREES);
   // fill(0);
@@ -23,5 +23,8 @@ function draw() {
 
   ellipse(width/2,height/2, 100,100);
   strokeWeight(8);
-  arc(width/2, height/2, 100,100, (app.angle - 2) - 90,(app.angle + 2) - 90);
+  stroke(0, 128);
+  arc(width/2, height/2, 100,100, (app.compassAngle - 2) - 90,(app.compassAngle + 2) - 90);
+  stroke(0, 0, 255, 128);
+  arc(width/2, height/2, 100,100, (app.gpsAngle - 2) - 90,(app.gpsAngle + 2) - 90);
 }

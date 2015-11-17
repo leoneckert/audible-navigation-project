@@ -9,7 +9,9 @@ var app = {
     },
     watchId: null,
     watchIdOrientation: null,
-    angle: 0,
+    compassAngle: 0,
+    gpsAngle: 0,
+
 
     // Bind Event Listeners
     // any listeners created in here will be constantly listening. 
@@ -35,20 +37,25 @@ var app = {
         /////////////////
         //this is window
         /////////////////
-        output.innerHTML =  "Latitude: " + position.coords.latitude + 
-                            "<br>Longitude: " + position.coords.longitude +
-                            "<br>Altitude: " + position.coords.altitude +
-                            "<br>Accuracy: " + position.coords.accuracy +
-                            "<br>Altitude Accuracy: " + position.coords.altitudeAccuracy +
-                            "<br>Heading: " + position.coords.heading +
-                            "<br>Speed: " + position.coords.speed +
-                            "<br>Timestamp: " + position.timestamp;
+        output.innerHTML =  "<b>Latitude:</b> " + position.coords.latitude + "<br><b>Longitude:</b> " + position.coords.longitude;
+                            // "<br>Altitude: " + position.coords.altitude +
+                            // "<br>Accuracy: " + position.coords.accuracy +
+                            // "<br>Altitude Accuracy: " + position.coords.altitudeAccuracy +
+                            // "<br>Heading: " + position.coords.heading +
+                            // "<br>Speed: " + position.coords.speed +
+                            // "<br>Timestamp: " + position.timestamp;
+        //in relation to ITP:
+        //north: 40.741564, -73.993177
+        //east: 40.729109, -73.973264
+        //south: 40.717466, -73.994421
+        output1.innerHTML = String(app.getBearing(position.coords.latitude, position.coords.longitude, 40.717466, -73.994421));
+        app.gpsAngle = app.getBearing(position.coords.latitude, position.coords.longitude, 40.717466, -73.994421);
       }
 
       function sucessOrientation(heading) { 
         // output2.innerHTML = "nothing";
-        output2.innerHTML = heading.magneticHeading;
-        app.angle = heading.magneticHeading;
+        output2.innerHTML = "<b>Compass:</b> " + heading.magneticHeading;
+        app.compassAngle = heading.magneticHeading;
         // output3.innerHTML = app.angle;
 
       }
@@ -59,36 +66,39 @@ var app = {
 
 
     onError: function(err) {
-      alert('you FAILED! DIE!' + err);
+      alert('Something did not work: ' + err);
     },
 
 
-    handleClick: function() {
-      /////////////////
-      //this is Button
-      /////////////////
-      app.readLocation();
-    },
+    //location bearing:
+    //from here: http://gis.stackexchange.com/questions/29239/calculate-bearing-between-two-decimal-gps-coordinates
+  
 
+    getBearing: function(startLat,startLong,endLat,endLong){
+      function radians(n) {
+        return n * (Math.PI / 180);
+      }
+      function degrees(n) {
+        return n * (180 / Math.PI);
+      }
+      startLat = radians(startLat);
+      startLong = radians(startLong);
+      endLat = radians(endLat);
+      endLong = radians(endLong);
 
-    readLocation: function() {
-      /////////////////
-      //this is APP
-      /////////////////
-      function onSuccess(position) {
-        /////////////////
-        //this is Window
-        /////////////////
-        output.innerHTML = position.coords.latitude;
+      var dLong = endLong - startLong;
+
+      var dPhi = Math.log(Math.tan(endLat/2.0+Math.PI/4.0)/Math.tan(startLat/2.0+Math.PI/4.0));
+      if (Math.abs(dLong) > Math.PI){
+        if (dLong > 0.0)
+           dLong = -(2.0 * Math.PI - dLong);
+        else
+           dLong = (2.0 * Math.PI + dLong);
       }
-      function sucessOrientation(heading) { 
-        // output2.innerHTML = "nothing";
-        output2.innerHTML = heading.magneticHeading;
-      }
-      
-      navigator.geolocation.getCurrentPosition(onSuccess, app.onError);
-      navigator.compass.getCurrentHeading(sucessOrientation, app.onError);
+
+      return (degrees(Math.atan2(dLong, dPhi)) + 360.0) % 360.0;
     }
+
 
 
 };
@@ -97,6 +107,8 @@ var app = {
 //this is window
 /////////////////
 app.initialize();
+
+
 
 
 
