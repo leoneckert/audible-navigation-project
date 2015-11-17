@@ -72,7 +72,7 @@ var app = {
 
 
     readLocation: function() {
-      /////////////////
+      ////////////////
       //this is APP
       /////////////////
       function onSuccess(position) {
