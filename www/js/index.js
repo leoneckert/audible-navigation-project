@@ -20,7 +20,24 @@ var app = {
         //this is APP
         /////////////////
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        button.addEventListener('click', this.handleClick, false);
+        // button.addEventListener('click', this.handleClick, false);
+            //the player
+        // var player = new Tone.Player({
+        //   "url" : "js/test_sound.m4a",
+
+        // }).toMaster();
+        // var player = new Tone.Player("js/test_sound.m4a",playbackRate: 2).toMaster();
+        //the player
+        // var player = new Tone.Player({
+        //   "url" : "js/test_sound.m4a",
+        //   "playbackRate" : 2,
+        // }).toMaster();
+      
+        // Tone.Buffer.onload = function(){
+
+        //   player.start();
+        // }
+
     },
     
     // var angle = 0,

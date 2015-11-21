@@ -40,8 +40,8 @@ function draw() {
   // }else{
   //   osc.amp(0);
   // }
-  var low = 120
-  var high = 240
+  var low = 120;
+  var high = 410;
   osc_gps.pan(1);
   osc_gps.freq(map(app.gpsAngle, 0, 360, low, high));
 
