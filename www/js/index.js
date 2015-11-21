@@ -11,6 +11,7 @@ var app = {
     watchIdOrientation: null,
     compassAngle: 0,
     gpsAngle: 0,
+    player: null,
 
 
     // Bind Event Listeners
@@ -28,15 +29,18 @@ var app = {
         // }).toMaster();
         // var player = new Tone.Player("js/test_sound.m4a",playbackRate: 2).toMaster();
         //the player
-        // var player = new Tone.Player({
-        //   "url" : "js/test_sound.m4a",
-        //   "playbackRate" : 2,
-        // }).toMaster();
-      
-        // Tone.Buffer.onload = function(){
+        app.player = new Tone.Player({
+          "url" : "js/yesterday.mp3",
+          "loop": true,
+          // "playbackRate" : (app.compassAngle - 0) * (7 - (-5)) / (360 - 0) + (- 5),
+        }).toMaster();
 
-        //   player.start();
-        // }
+        
+      
+        Tone.Buffer.onload = function(){
+          print(app.player.playbackRate);
+          app.player.start();
+        }
 
     },
     
@@ -77,6 +81,7 @@ var app = {
         // output2.innerHTML = "nothing";
         output2.innerHTML = "<b>Compass:</b> " + heading.magneticHeading;
         app.compassAngle = heading.magneticHeading;
+        app.player.playbackRate = (app.compassAngle - 0) * (4 - (0)) / (360 - 0) + (0);
         // output3.innerHTML = app.angle;
 
       }

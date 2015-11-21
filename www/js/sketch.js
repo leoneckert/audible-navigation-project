@@ -1,21 +1,21 @@
 var cnv;
 
-var osc_gps;
-var osc_compass;
+// var osc_gps;
+// var osc_compass;
 
 function setup() {
   cnv = createCanvas(200,200);
-  osc_gps = new p5.Oscillator();
-  osc_gps.setType('sine');
-  osc_gps.freq(240);
-  osc_gps.amp(0.5);
-  osc_gps.start();
+  // osc_gps = new p5.Oscillator();
+  // osc_gps.setType('sine');
+  // osc_gps.freq(240);
+  // osc_gps.amp(0.5);
+  // osc_gps.start();
 
-  osc_compass = new p5.Oscillator();
-  osc_compass.setType('sine');
-  osc_compass.freq(240);
-  osc_compass.amp(0.5);
-  osc_compass.start();
+  // osc_compass = new p5.Oscillator();
+  // osc_compass.setType('sine');
+  // osc_compass.freq(240);
+  // osc_compass.amp(0.5);
+  // osc_compass.start();
 }
 
 function draw() {
@@ -40,13 +40,14 @@ function draw() {
   // }else{
   //   osc.amp(0);
   // }
-  var low = 120;
-  var high = 410;
-  osc_gps.pan(1);
-  osc_gps.freq(map(app.gpsAngle, 0, 360, low, high));
+  
+  // var low = 120;
+  // var high = 410;
+  // osc_gps.pan(1);
+  // osc_gps.freq(map(app.gpsAngle, 0, 360, low, high));
 
-  osc_compass.pan(-1);
-  osc_compass.freq(map(app.compassAngle, 0, 360, low, high));
+  // osc_compass.pan(-1);
+  // osc_compass.freq(map(app.compassAngle, 0, 360, low, high));
 
   ellipse(width/2,height/2, 100,100);
   strokeWeight(8);
