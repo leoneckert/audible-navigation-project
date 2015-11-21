@@ -48,9 +48,12 @@ var app = {
         //north: 40.741564, -73.993177
         //east: 40.729109, -73.973264
         //south: 40.717466, -73.994421
+        //west: 40.729825, -74.031797
         // between itp and union: 40.732378, -73.991332
-        output1.innerHTML = String(app.getBearing(position.coords.latitude, position.coords.longitude, 40.732378, -73.991332));
-        app.gpsAngle = app.getBearing(position.coords.latitude, position.coords.longitude, 40.732378, -73.991332);
+        var dest_lat = 40.729825;
+        var dest_lon = -74.031797;
+        output1.innerHTML = "<b>Destination bearing:</b> " + String(app.getBearing(position.coords.latitude, position.coords.longitude, dest_lat, dest_lon));
+        app.gpsAngle = app.getBearing(position.coords.latitude, position.coords.longitude, dest_lat, dest_lon);
       }
 
       function sucessOrientation(heading) { 

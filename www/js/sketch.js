@@ -1,8 +1,21 @@
 var cnv;
 
+var osc_gps;
+var osc_compass;
+
 function setup() {
   cnv = createCanvas(200,200);
+  osc_gps = new p5.Oscillator();
+  osc_gps.setType('sine');
+  osc_gps.freq(240);
+  osc_gps.amp(0.5);
+  osc_gps.start();
 
+  osc_compass = new p5.Oscillator();
+  osc_compass.setType('sine');
+  osc_compass.freq(240);
+  osc_compass.amp(0.5);
+  osc_compass.start();
 }
 
 function draw() {
@@ -19,7 +32,21 @@ function draw() {
   textAlign(RIGHT);
   text("east", width/2 + 90, height/2);
   textAlign(LEFT);
-  text("east", width/2 - 90, height/2);
+  text("west", width/2 - 90, height/2);
+
+
+  // if(app.compassAngle < 10 || app.compassAngle > 350){
+  //   osc.amp(0.5);
+  // }else{
+  //   osc.amp(0);
+  // }
+  var low = 120
+  var high = 240
+  osc_gps.pan(1);
+  osc_gps.freq(map(app.gpsAngle, 0, 360, low, high));
+
+  osc_compass.pan(-1);
+  osc_compass.freq(map(app.compassAngle, 0, 360, low, high));
 
   ellipse(width/2,height/2, 100,100);
   strokeWeight(8);
@@ -27,4 +54,6 @@ function draw() {
   arc(width/2, height/2, 100,100, (app.compassAngle - 2) - 90,(app.compassAngle + 2) - 90);
   stroke(0, 0, 255, 128);
   arc(width/2, height/2, 100,100, (app.gpsAngle - 2) - 90,(app.gpsAngle + 2) - 90);
+
+
 }
