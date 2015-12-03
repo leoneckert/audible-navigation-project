@@ -127,8 +127,8 @@ var app = {
         //south: 40.717466, -73.994421
         //west: 40.729825, -74.031797
         // between itp and union: 40.732378, -73.991332
-        var dest_lat = 40.729109;
-        var dest_lon = -73.973264;
+        var dest_lat = 40.732378;
+        var dest_lon = -73.991332;
         output1.innerHTML = "<b>Destination bearing:</b> " + String(app.getBearing(position.coords.latitude, position.coords.longitude, dest_lat, dest_lon));
         app.gpsAngle = app.getBearing(position.coords.latitude, position.coords.longitude, dest_lat, dest_lon);
       }
@@ -204,7 +204,7 @@ var app = {
         
 
 
-        if(app.relativeAngle >= 337.5 && app.relativeAngle <= 22.5){
+        if(app.relativeAngle >= 337.5 && app.relativeAngle <= 360 || app.relativeAngle >= 0 && app.relativeAngle <= 22.5){
           //play 0
 
           app.player0.set({
