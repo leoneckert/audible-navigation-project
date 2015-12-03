@@ -204,229 +204,257 @@ var app = {
         
 
 
-        if(app.relativeAngle >= 0 && app.relativeAngle <= 45){
-          var secondAngle = 45;
-          // 0 down
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = 0;
-          right_sound = -55;
+        if(app.relativeAngle >= 337.5 && app.relativeAngle <= 22.5){
+          //play 0
 
           app.player0.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
+            "volume" : 1,
           });
-
-
-          //45 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player45.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
+            "volume" : -55,
           });
-
-        }
-
-
-        if(app.relativeAngle >= 45 && app.relativeAngle <= 90){
-          var secondAngle = 90;
-          //45 down
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = 0;
-          right_sound = -55;
-
-          app.player45.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-
-
-            // "volume" : -55,
-          });
-
-
-
-          //90 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player90.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
+            "volume" : -55,
           });
-
-
-
-        }
-
-
-        if(app.relativeAngle >= 90 && app.relativeAngle <= 135){
-          var secondAngle = 135;
-
-          //90 down
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = 0;
-          right_sound = -55;
-
-          app.player90.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
-          });
-
-          // //135 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player135.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
+            "volume" : -55,
           });
-
-        }
-
-
-        if(app.relativeAngle >= 135 && app.relativeAngle <= 180){
-          var secondAngle = 180;
-
-          //135 down
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = 0;
-          right_sound = -55;
-
-          app.player135.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
-          });
-
-          //180 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player180.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
+            "volume" : -55,
           });
-
-        }
-
-
-        if(app.relativeAngle >= 180 && app.relativeAngle <= 225){
-          var secondAngle = 225;
-          //180 down
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = 0;
-          right_sound = -55;
-
-          app.player180.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
-          });
-
-          //225 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player225.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
+            "volume" : -55,
           });
-
-        }
-
-
-        if(app.relativeAngle >= 225 && app.relativeAngle <= 270){
-          var secondAngle = 270;
-
-          //225 down
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = 0;
-          right_sound = -55;
-
-          app.player225.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
-          });
-
-          //270 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player270.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
+            "volume" : -55,
           });
+          app.player315.set({
+            "volume" : -55,
+          });
+
 
         }
 
 
-        if(app.relativeAngle >= 270 && app.relativeAngle <= 315){
-          var secondAngle = 315;
-
-          //270 down
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = 0;
-          right_sound = -55;
-
-          app.player270.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
-          });
-
-          //315 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
-          app.player315.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
-          });
-
-        }
-        if(app.relativeAngle >= 315 && app.relativeAngle <= 360){
-          var secondAngle = 360;
-
-          //315 down
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = 0;
-          right_sound = -55;
-
-          app.player315.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
-          });
-
-          // 0 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
+        if(app.relativeAngle >= 22.5 && app.relativeAngle <= 67.6){
+          //play 45
 
           app.player0.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-            // "volume" : -55,
+            "volume" : -55,
+          });
+          app.player45.set({
+            "volume" : 1,
+          });
+          app.player90.set({
+            "volume" : -55,
+          });
+          app.player135.set({
+            "volume" : -55,
+          });
+          app.player180.set({
+            "volume" : -55,
+          });
+          app.player225.set({
+            "volume" : -55,
+          });
+          app.player270.set({
+            "volume" : -55,
+          });
+          app.player315.set({
+            "volume" : -55,
           });
 
+
+
+        }
+
+
+        if(app.relativeAngle >= 67.5 && app.relativeAngle <= 112.5){
+          //play 90
+
+          app.player0.set({
+            "volume" : -55,
+          });
+          app.player45.set({
+            "volume" : -55,
+          });
+          app.player90.set({
+            "volume" : 1,
+          });
+          app.player135.set({
+            "volume" : -55,
+          });
+          app.player180.set({
+            "volume" : -55,
+          });
+          app.player225.set({
+            "volume" : -55,
+          });
+          app.player270.set({
+            "volume" : -55,
+          });
+          app.player315.set({
+            "volume" : -55,
+          });
+
+        }
+
+
+        if(app.relativeAngle >= 112.5 && app.relativeAngle <= 157.5){
+          // play 135
+
+
+          app.player0.set({
+            "volume" : -55,
+          });
+          app.player45.set({
+            "volume" : -55,
+          });
+          app.player90.set({
+            "volume" : -55,
+          });
+          app.player135.set({
+            "volume" : 1,
+          });
+          app.player180.set({
+            "volume" : -55,
+          });
+          app.player225.set({
+            "volume" : -55,
+          });
+          app.player270.set({
+            "volume" : -55,
+          });
+          app.player315.set({
+            "volume" : -55,
+          });
+
+        }
+
+
+        if(app.relativeAngle >= 157.5 && app.relativeAngle <= 202.5){
+          //play 180
+
+
+          app.player0.set({
+            "volume" : -55,
+          });
+          app.player45.set({
+            "volume" : -55,
+          });
+          app.player90.set({
+            "volume" : -55,
+          });
+          app.player135.set({
+            "volume" : -55,
+          });
+          app.player180.set({
+            "volume" : 1,
+          });
+          app.player225.set({
+            "volume" : -55,
+          });
+          app.player270.set({
+            "volume" : -55,
+          });
+          app.player315.set({
+            "volume" : -55,
+          });
+
+        }
+
+
+        if(app.relativeAngle >= 202.5 && app.relativeAngle <= 247.5){
+          //play 225
+
+
+          app.player0.set({
+            "volume" : -55,
+          });
+          app.player45.set({
+            "volume" : -55,
+          });
+          app.player90.set({
+            "volume" : -55,
+          });
+          app.player135.set({
+            "volume" : -55,
+          });
+          app.player180.set({
+            "volume" : -55,
+          });
+          app.player225.set({
+            "volume" : 1,
+          });
+          app.player270.set({
+            "volume" : -55,
+          });
+          app.player315.set({
+            "volume" : -55,
+          });
+
+        }
+
+
+        if(app.relativeAngle >= 247.5 && app.relativeAngle <= 292.5){
+          //play 270
+
+
+          app.player0.set({
+            "volume" : -55,
+          });
+          app.player45.set({
+            "volume" : -55,
+          });
+          app.player90.set({
+            "volume" : -55,
+          });
+          app.player135.set({
+            "volume" : -55,
+          });
+          app.player180.set({
+            "volume" : -55,
+          });
+          app.player225.set({
+            "volume" : -55,
+          });
+          app.player270.set({
+            "volume" : 1,
+          });
+          app.player315.set({
+            "volume" : -55,
+          });
+
+        }
+        if(app.relativeAngle >= 292.5 && app.relativeAngle <= 337.5){
+          //play 315
+
+
+
+          app.player0.set({
+            "volume" : -55,
+          });
+          app.player45.set({
+            "volume" : -55,
+          });
+          app.player90.set({
+            "volume" : -55,
+          });
+          app.player135.set({
+            "volume" : -55,
+          });
+          app.player180.set({
+            "volume" : -55,
+          });
+          app.player225.set({
+            "volume" : -55,
+          });
+          app.player270.set({
+            "volume" : -55,
+          });
+          app.player315.set({
+            "volume" : 1,
+          });
         }
 
 
