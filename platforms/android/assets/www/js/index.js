@@ -189,74 +189,81 @@ var app = {
         var to = 0;
         var left_sound = 0;
         var right_sound = 0;
-        // down
-        // from = secondAngle - 45;
-        // to = secondAngle;
-        // left_sound = 0;
-        // right_sound = -55;
-
-        // // up
-        // from = secondAngle - 45;
-        // to = secondAngle;
-        // left_sound = -55;
-        // right_sound = 0;
-
         
+
+        app.player0.set({
+            "volume" : -100,
+        });
+        app.player45.set({
+            "volume" : -100,
+        });
+        app.player90.set({
+            "volume" : -100,
+        });
+        app.player135.set({
+            "volume" : -100,
+        });
+        app.player180.set({
+            "volume" : -100,
+        });
+        app.player225.set({
+            "volume" : -100,
+        });
+        app.player270.set({
+            "volume" : -100,
+        });
+        app.player315.set({
+            "volume" : -100,
+        });
 
 
         if(app.relativeAngle >= 0 && app.relativeAngle <= 45){
           var secondAngle = 45;
-          // 0 down
+          
           from = secondAngle - 45;
           to = secondAngle;
           left_sound = 0;
-          right_sound = -55;
+          right_sound = 1;
 
+          // calculate a, mapping from 0 to 1
+          var a = (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound;
+
+          // 0 down
           app.player0.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player0.gainToDb(app.player0.equalPowerScale(1-a)),
             // "volume" : -55,
           });
-
 
           //45 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player45.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player45.gainToDb(app.player45.equalPowerScale(a)),
             // "volume" : -55,
           });
+
 
         }
 
 
         if(app.relativeAngle >= 45 && app.relativeAngle <= 90){
           var secondAngle = 90;
-          //45 down
+          
           from = secondAngle - 45;
           to = secondAngle;
           left_sound = 0;
-          right_sound = -55;
+          right_sound = 1;
 
+          // calculate a, mapping from 0 to 1
+          var a = (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound;
+
+          // 45 down
           app.player45.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
-
-
+            "volume" : app.player45.gainToDb(app.player45.equalPowerScale(1-a)),
             // "volume" : -55,
           });
 
-
-
           //90 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player90.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player90.gainToDb(app.player90.equalPowerScale(a)),
             // "volume" : -55,
           });
 
@@ -268,25 +275,23 @@ var app = {
         if(app.relativeAngle >= 90 && app.relativeAngle <= 135){
           var secondAngle = 135;
 
-          //90 down
           from = secondAngle - 45;
           to = secondAngle;
           left_sound = 0;
-          right_sound = -55;
+          right_sound = 1;
 
+          // calculate a, mapping from 0 to 1
+          var a = (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound;
+
+          // 90 down
           app.player90.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player90.gainToDb(app.player90.equalPowerScale(1-a)),
             // "volume" : -55,
           });
 
-          // //135 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
+          //135 up
           app.player135.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player135.gainToDb(app.player135.equalPowerScale(a)),
             // "volume" : -55,
           });
 
@@ -296,25 +301,23 @@ var app = {
         if(app.relativeAngle >= 135 && app.relativeAngle <= 180){
           var secondAngle = 180;
 
-          //135 down
           from = secondAngle - 45;
           to = secondAngle;
           left_sound = 0;
-          right_sound = -55;
+          right_sound = 1;
 
+          // calculate a, mapping from 0 to 1
+          var a = (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound;
+
+          // 135 down
           app.player135.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player135.gainToDb(app.player135.equalPowerScale(1-a)),
             // "volume" : -55,
           });
 
           //180 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player180.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player180.gainToDb(app.player180.equalPowerScale(a)),
             // "volume" : -55,
           });
 
@@ -323,25 +326,24 @@ var app = {
 
         if(app.relativeAngle >= 180 && app.relativeAngle <= 225){
           var secondAngle = 225;
-          //180 down
+
           from = secondAngle - 45;
           to = secondAngle;
           left_sound = 0;
-          right_sound = -55;
+          right_sound = 1;
 
+          // calculate a, mapping from 0 to 1
+          var a = (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound;
+
+          // 180 down
           app.player180.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player180.gainToDb(app.player180.equalPowerScale(1-a)),
             // "volume" : -55,
           });
 
           //225 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player225.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player225.gainToDb(app.player225.equalPowerScale(a)),
             // "volume" : -55,
           });
 
@@ -351,25 +353,23 @@ var app = {
         if(app.relativeAngle >= 225 && app.relativeAngle <= 270){
           var secondAngle = 270;
 
-          //225 down
           from = secondAngle - 45;
           to = secondAngle;
           left_sound = 0;
-          right_sound = -55;
+          right_sound = 1;
 
+          // calculate a, mapping from 0 to 1
+          var a = (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound;
+
+          // 225 down
           app.player225.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player225.gainToDb(app.player225.equalPowerScale(1-a)),
             // "volume" : -55,
           });
 
           //270 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player270.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player270.gainToDb(app.player270.equalPowerScale(a)),
             // "volume" : -55,
           });
 
@@ -379,25 +379,23 @@ var app = {
         if(app.relativeAngle >= 270 && app.relativeAngle <= 315){
           var secondAngle = 315;
 
-          //270 down
           from = secondAngle - 45;
           to = secondAngle;
           left_sound = 0;
-          right_sound = -55;
+          right_sound = 1;
 
+          // calculate a, mapping from 0 to 1
+          var a = (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound;
+
+          // 270 down
           app.player270.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player270.gainToDb(app.player270.equalPowerScale(1-a)),
             // "volume" : -55,
           });
 
           //315 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
           app.player315.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player315.gainToDb(app.player315.equalPowerScale(a)),
             // "volume" : -55,
           });
 
@@ -405,29 +403,55 @@ var app = {
         if(app.relativeAngle >= 315 && app.relativeAngle <= 360){
           var secondAngle = 360;
 
-          //315 down
           from = secondAngle - 45;
           to = secondAngle;
           left_sound = 0;
-          right_sound = -55;
+          right_sound = 1;
 
+          // calculate a, mapping from 0 to 1
+          var a = (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound;
+
+          // 315 down
           app.player315.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player315.gainToDb(app.player315.equalPowerScale(1-a)),
             // "volume" : -55,
           });
 
-          // 0 up
-          from = secondAngle - 45;
-          to = secondAngle;
-          left_sound = -55;
-          right_sound = 0;
-
+          //0 up
           app.player0.set({
-            "volume" : (app.relativeAngle - from) * (right_sound - left_sound) / (secondAngle - from) + left_sound,
+            "volume" : app.player0.gainToDb(app.player0.equalPowerScale(a)),
             // "volume" : -55,
           });
 
         }
+
+        console.log("0: ");
+        console.log(app.player0.get("volume"));
+        console.log("45: ");
+        console.log(app.player45.get("volume"));
+        console.log("90: ");
+        console.log(app.player90.get("volume"));
+        console.log("135: ");
+        console.log(app.player135.get("volume"));
+        console.log("180: ");
+        console.log(app.player180.get("volume"));
+        console.log("225: ");
+        console.log(app.player225.get("volume"));
+        console.log("270: ");
+        console.log(app.player270.get("volume"));
+        console.log("360: ");
+        console.log(app.player315.get("volume"));
+
+        console.log("-------------");
+        
+
+        
+        
+        
+        
+        
+        
+        
 
 
 
