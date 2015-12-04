@@ -40,50 +40,50 @@ var app = {
        
         //the player
         app.player0 = new Tone.Player({
-          "url" : "js/000.mp3",
+          "url" : "js/yesterday/000.mp3",
           "loop": true,
           // "playbackRate" : (app.compassAngle - 0) * (7 - (-5)) / (360 - 0) + (- 5),
         }).toMaster();
 
         app.player45 = new Tone.Player({
-          "url" : "js/045.mp3",
+          "url" : "js/yesterday/045.mp3",
           "loop": true,
           // "playbackRate" : (app.compassAngle - 0) * (7 - (-5)) / (360 - 0) + (- 5),
         }).toMaster();
 
         app.player90 = new Tone.Player({
-          "url" : "js/090.mp3",
+          "url" : "js/yesterday/090.mp3",
           "loop": true,
           // "playbackRate" : (app.compassAngle - 0) * (7 - (-5)) / (360 - 0) + (- 5),
         }).toMaster();
 
 
         app.player135 = new Tone.Player({
-          "url" : "js/135.mp3",
+          "url" : "js/yesterday/135.mp3",
           "loop": true,
           // "playbackRate" : (app.compassAngle - 0) * (7 - (-5)) / (360 - 0) + (- 5),
         }).toMaster();
 
         app.player180 = new Tone.Player({
-          "url" : "js/180.mp3",
+          "url" : "js/yesterday/180.mp3",
           "loop": true,
           // "playbackRate" : (app.compassAngle - 0) * (7 - (-5)) / (360 - 0) + (- 5),
         }).toMaster();
 
         app.player225 = new Tone.Player({
-          "url" : "js/225.mp3",
+          "url" : "js/yesterday/225.mp3",
           "loop": true,
           // "playbackRate" : (app.compassAngle - 0) * (7 - (-5)) / (360 - 0) + (- 5),
         }).toMaster();
 
         app.player270 = new Tone.Player({
-          "url" : "js/270.mp3",
+          "url" : "js/yesterday/270.mp3",
           "loop": true,
           // "playbackRate" : (app.compassAngle - 0) * (7 - (-5)) / (360 - 0) + (- 5),
         }).toMaster();
 
         app.player315 = new Tone.Player({
-          "url" : "js/315.mp3",
+          "url" : "js/yesterday/315.mp3",
           "loop": true,
           // "playbackRate" : (app.compassAngle - 0) * (7 - (-5)) / (360 - 0) + (- 5),
         }).toMaster();
