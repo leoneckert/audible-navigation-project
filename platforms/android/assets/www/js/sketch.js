@@ -5,6 +5,7 @@ var cnv;
 
 function setup() {
   cnv = createCanvas(windowWidth-17,windowWidth-17);
+  cnv.parent("canvas_here");
   // osc_gps = new p5.Oscillator();
   // osc_gps.setType('sine');
   // osc_gps.freq(240);
@@ -94,11 +95,11 @@ function draw() {
   // stroke(0, 0, 0, 200);
   // arc(width/2, height/2, 100,100, (0 - 2) - 90,(0 + 2) - 90);
   
-  // stroke(255, 0, 0, 128);
-  // arc(width/2, height/2, 100,100, (app.relativeAngle - 2) ,(app.relativeAngle + 2) );
-
   stroke(255, 0, 0);
-  arc(width/2, height/2, 100,100, (app.relativeAngle_tilt - 2) ,(app.relativeAngle_tilt + 2) );
+  arc(width/2, height/2, 100,100, (app.relativeAngle - 2) ,(app.relativeAngle + 2) );
+
+  // stroke(255, 0, 0);
+  // arc(width/2, height/2, 100,100, (app.relativeAngle_tilt - 2) ,(app.relativeAngle_tilt + 2) );
   
   // stroke(0, 0, 0);
   // arc(width/2, height/2, 100,100, (app.compassAngle_tilt - 2) ,(app.compassAngle_tilt + 2) );
