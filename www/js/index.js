@@ -10,8 +10,10 @@ var app = {
     watchId: null,
     watchIdOrientation: null,
     compassAngle: 0,
+    compassAngle_tilt: 0,
     gpsAngle: 0,
     relativeAngle:0,
+    relativeAngle_tilt:0,
     player0: null,
     player45: null,
     player90: null,
@@ -26,11 +28,11 @@ var app = {
     // Bind Event Listeners
     // any listeners created in here will be constantly listening. 
     bindEvents: function() {
-        /////////////////
+         /////////////////
         //this is APP
         /////////////////
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        // button.addEventListener('click', this.handleClick, false);
+            // button.addEventListener('click', this.handleClick, false);
             //the player
         // var player = new Tone.Player({
         //   "url" : "js/test_sound.m4a",
@@ -126,16 +128,24 @@ var app = {
         //east: 40.729109, -73.973264
         //south: 40.717466, -73.994421
         //west: 40.729825, -74.031797
-        // between itp and union: 40.732378, -73.991332
-        var dest_lat = 40.729109;
-        var dest_lon = -73.973264;
+        // between itp and union, grace church: 40.731994, -73.991089
+        var dest_lat = 40.731994;
+        var dest_lon = -73.991089;
         output1.innerHTML = "<b>Destination bearing:</b> " + String(app.getBearing(position.coords.latitude, position.coords.longitude, dest_lat, dest_lon));
         app.gpsAngle = app.getBearing(position.coords.latitude, position.coords.longitude, dest_lat, dest_lon);
       }
 
       function sucessOrientation(heading) { 
         // output2.innerHTML = "nothing";
-        output2.innerHTML = "<b>Compass:</b> " + heading.magneticHeading;
+        
+        //the follwoing lines are to always add 90 degrees as the app will be used in landscape mode
+        var tempAngle = heading.magneticHeading + 90;
+        if(tempAngle >= 360){
+          tempAngle = tempAngle - 360;
+        }
+        app.compassAngle_tilt = tempAngle;
+        output2.innerHTML = "<b>Compass:</b> " + app.compassAngle_tilt;
+        // output2.innerHTML = "<b>Compass:</b> " + heading.magneticHeading;
         app.compassAngle = heading.magneticHeading;
 
         // app.player0.playbackRate = (app.compassAngle - 0) * (4 - (0)) / (360 - 0) + (0);
@@ -146,12 +156,25 @@ var app = {
         }else{
           app.relativeAngle = (app.gpsAngle - app.compassAngle)+360;
         }
+        // tempAngle = app.relativeAngle + 90;
+        // if(tempAngle <= 360){
+        //   tempAngle = tempAngle - 360;
+        // }
+        // app.relativeAngle = tempAngle;
+
+
+        if(app.gpsAngle >= app.compassAngle_tilt){
+          app.relativeAngle_tilt = app.gpsAngle - app.compassAngle_tilt;
+        }else{
+          app.relativeAngle_tilt = (app.gpsAngle - app.compassAngle_tilt)+360;
+        }
+       
 
         // (app.relativeAngle - in_min) * (out_max - out_min) / (in_max - in_min) + out_min,
 
         var fade_span = 45;
 
-
+        output3.innerHTML = "<b>Relative Angle:</b> " + app.relativeAngle_tilt;
 
         // if(app.relativeAngle >= 360 - fade_span){
         //   app.player0.set({
@@ -464,7 +487,7 @@ var app = {
        
        
 
-        output3.innerHTML = "<b>Relative Angle:</b> " + app.relativeAngle;
+        
 
       }
 

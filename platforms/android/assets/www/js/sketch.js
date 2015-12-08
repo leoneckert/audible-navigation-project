@@ -4,7 +4,7 @@ var cnv;
 // var osc_compass;
 
 function setup() {
-  cnv = createCanvas(200,220);
+  cnv = createCanvas(windowWidth-17,windowWidth-17);
   // osc_gps = new p5.Oscillator();
   // osc_gps.setType('sine');
   // osc_gps.freq(240);
@@ -19,7 +19,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(200);
   angleMode(DEGREES);
   // fill(0);
   noFill();
@@ -35,12 +35,12 @@ function draw() {
   // text("west", width/2 - 90, height/2);
 
   textAlign(CENTER);
-  text("0°", width/2, height/2 - 70);
-  text("180°", width/2, height/2 + 70);
+  text("270°", width/2, height/2 - 70);
+  text("90°", width/2, height/2 + 70);
   textAlign(RIGHT);
-  text("90°", width/2 + 90, height/2);
+  text("0°", width/2 + 90, height/2);
   textAlign(LEFT);
-  text("270°", width/2 - 90, height/2);
+  text("180°", width/2 - 90, height/2);
 
 
   textAlign(LEFT);
@@ -61,18 +61,46 @@ function draw() {
   // osc_compass.pan(-1);
   // osc_compass.freq(map(app.compassAngle, 0, 360, low, high));
 
-  ellipse(width/2,height/2, 100,100);
-  strokeWeight(8);
+  // ----
+
+  // ellipse(width/2,height/2, 100,100);
+  // strokeWeight(8);
   // stroke(0, 128);
   // arc(width/2, height/2, 100,100, (app.compassAngle - 2) - 90,(app.compassAngle + 2) - 90);
   // stroke(0, 0, 255, 128);
   // arc(width/2, height/2, 100,100, (app.gpsAngle - 2) - 90,(app.gpsAngle + 2) - 90);
 
-  stroke(0, 0, 0, 200);
-  arc(width/2, height/2, 100,100, (0 - 2) - 90,(0 + 2) - 90);
+  // // stroke(0, 0, 0, 200);
+  // // arc(width/2, height/2, 100,100, (0 - 2) - 90,(0 + 2) - 90);
   
-  stroke(255, 0, 0, 128);
-  arc(width/2, height/2, 100,100, (app.relativeAngle - 2) - 90,(app.relativeAngle + 2) - 90);
+  // stroke(255, 0, 0, 128);
+  // arc(width/2, height/2, 100,100, (app.relativeAngle - 2) - 90,(app.relativeAngle + 2) - 90);
 
+  // stroke(255, 0, 0);
+  // arc(width/2, height/2, 100,100, (app.relativeAngle_tilt - 2) - 90,(app.relativeAngle_tilt + 2) - 90);
+  
+  // stroke(0, 0, 0);
+  // arc(width/2, height/2, 100,100, (app.compassAngle_tilt - 2) - 90,(app.compassAngle_tilt + 2) - 90);
+
+  // ----
+
+  ellipse(width/2,height/2, 100,100);
+  strokeWeight(8);
+  // stroke(0, 128);
+  // arc(width/2, height/2, 100,100, (app.compassAngle - 2) ,(app.compassAngle + 2) );
+  // stroke(0, 0, 255, 128);
+  // arc(width/2, height/2, 100,100, (app.gpsAngle - 2) ,(app.gpsAngle + 2) );
+
+  // stroke(0, 0, 0, 200);
+  // arc(width/2, height/2, 100,100, (0 - 2) - 90,(0 + 2) - 90);
+  
+  // stroke(255, 0, 0, 128);
+  // arc(width/2, height/2, 100,100, (app.relativeAngle - 2) ,(app.relativeAngle + 2) );
+
+  stroke(255, 0, 0);
+  arc(width/2, height/2, 100,100, (app.relativeAngle_tilt - 2) ,(app.relativeAngle_tilt + 2) );
+  
+  // stroke(0, 0, 0);
+  // arc(width/2, height/2, 100,100, (app.compassAngle_tilt - 2) ,(app.compassAngle_tilt + 2) );
 
 }
