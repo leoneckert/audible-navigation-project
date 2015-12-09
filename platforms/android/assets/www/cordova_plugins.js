@@ -25,13 +25,6 @@ module.exports = [
         "clobbers": [
             "navigator.compass"
         ]
-    },
-    {
-        "file": "plugins/plugin.google.maps/www/googlemaps-cdv-plugin.js",
-        "id": "plugin.google.maps.phonegap-googlemaps-plugin",
-        "clobbers": [
-            "plugin.google.maps"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -39,8 +32,7 @@ module.exports.metadata =
 {
     "cordova-plugin-geolocation": "1.0.1",
     "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-device-orientation": "1.0.1",
-    "plugin.google.maps": "1.3.4"
+    "cordova-plugin-device-orientation": "1.0.1"
 }
 // BOTTOM OF METADATA
 });
